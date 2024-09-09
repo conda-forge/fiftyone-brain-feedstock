@@ -1,13 +1,13 @@
 {% set name = "fiftyone-brain" %}
-{% set version = "0.16.1" %}
+{% set version = "0.17.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/fiftyone-brain-{{ version }}.tar.gz
-  sha256: a3f52bf5b7be1516f7b5202b434d8e15cf60e570b1b9d13652a0ad9610864b67
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: 66c0073f217eb1b916f6a3f56046c3c2ea8b8bb1517684e1bf8e3aafaeac0b2e
 
 build:
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
