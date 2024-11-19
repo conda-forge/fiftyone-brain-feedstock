@@ -1,13 +1,14 @@
 {% set name = "fiftyone-brain" %}
-{% set version = "0.17.0" %}
+{% set version = "0.18.0" %}
+{% set python_min = "3.9" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 66c0073f217eb1b916f6a3f56046c3c2ea8b8bb1517684e1bf8e3aafaeac0b2e
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: e63d68bc79fb136311f7a1efd678c8c35250684bbf1a47d47ca98627847a1fb8
 
 build:
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -16,11 +17,11 @@ build:
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - setuptools
     - pip
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - numpy
     - scipy >=1.2.0
     - scikit-learn
@@ -31,6 +32,7 @@ test:
   commands:
     - pip check
   requires:
+    - python {{ python_min }}
     - pip
 
 about:
