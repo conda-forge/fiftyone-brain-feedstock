@@ -1,5 +1,5 @@
 {% set name = "fiftyone-brain" %}
-{% set version = "0.21.1" %}
+{% set version = "0.21.2" %}
 {% set python_min = "3.9" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: ae9a359dcef993946eabe377c54d4f6a59383b181b605b0f09cab409c9296be6
+  sha256: 73c719ac509b0e074c450efa513478332c506cc747ed69a3568edd96c46f6164
 
 build:
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
